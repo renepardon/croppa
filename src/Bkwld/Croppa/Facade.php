@@ -1,9 +1,19 @@
-<?php namespace Bkwld\Croppa;
+<?php
 
+namespace Bkwld\Croppa;
+
+/**
+ * Class Facade
+ *
+ * @package Bkwld\Croppa
+ */
 class Facade extends \Illuminate\Support\Facades\Facade
 {
-	protected static function getFacadeAccessor()
+    /**
+     * @return string
+     */
+    protected static function getFacadeAccessor()
     {
-        return 'Bkwld\Croppa\Helpers';
+        return Helpers::class;
     }
 }

@@ -1,5 +1,6 @@
-<?php return array(
+<?php
 
+return [
     /*
     |-----------------------------------------------------------------------------
     | Image source and crop destination
@@ -15,7 +16,7 @@
      *      string  IoC binding name of League\Flysystem\Filesystem
      *      string  IoC binding name of League\Flysystem\Cached\CachedAdapter
      */
-    'src_dir' => public_path().'/uploads',
+    'src_dir'      => public_path() . '/uploads',
 
     /**
      * The directory where cropped images should be saved. The route to the
@@ -26,7 +27,7 @@
      *      string  IoC binding name of League\Flysystem\Filesystem
      *      string  IoC binding name of League\Flysystem\Cached\CachedAdapter
      */
-    'crops_dir' => public_path().'/uploads',
+    'crops_dir'    => public_path() . '/uploads',
 
     /**
      * Maximum number of sizes to allow for a particular source file. This is to
@@ -36,7 +37,7 @@
      *
      * @var integer | boolean
      */
-    'max_crops' => false,
+    'max_crops'    => false,
 
 
     /*
@@ -55,7 +56,7 @@
      *
      * @var string
      */
-    'path' => 'uploads/(.*)$',
+    'path'         => 'uploads/(.*)$',
 
     /**
      * A regex pattern that works like `path` except it is only used by the
@@ -66,7 +67,7 @@
      *
      * @var string
      */
-    'ignore' => '\.(gif|GIF)$',
+    'ignore'       => '\.(gif|GIF)$',
 
     /**
      * A string that is prepended to the path captured by the `path` pattern
@@ -87,7 +88,7 @@
      *
      * @var string | boolean
      */
-    'signing_key' => 'app.key',
+    'signing_key'  => 'app.key',
 
     /**
      * The PHP memory limit used by the script to generate thumbnails. Some
@@ -117,7 +118,7 @@
      *
      * @var boolean
      */
-    'interlace' => true,
+    'interlace'    => true,
 
     /**
      * If the source image is smaller than the requested size, allow Croppa to
@@ -125,7 +126,7 @@
      *
      * @var boolean
      */
-    'upscale' => false,
+    'upscale'      => false,
 
     /**
      * Filters for adding additional GD effects to an image and using them as parameter
@@ -133,7 +134,7 @@
      *
      * @var array
      */
-    'filters' => [
+    'filters'      => [
         'gray'      => Bkwld\Croppa\Filters\BlackWhite::class,
         'darkgray'  => Bkwld\Croppa\Filters\Darkgray::class,
         'blur'      => Bkwld\Croppa\Filters\Blur::class,
@@ -141,5 +142,4 @@
         'orange'    => Bkwld\Croppa\Filters\OrangeWarhol::class,
         'turquoise' => Bkwld\Croppa\Filters\TurquoiseWarhol::class,
     ],
-
-);
+];

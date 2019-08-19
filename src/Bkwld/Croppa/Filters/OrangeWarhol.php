@@ -3,7 +3,13 @@
 namespace Bkwld\Croppa\Filters;
 
 use GdThumb;
+use Intervention\Image\Image;
 
+/**
+ * Class OrangeWarhol
+ *
+ * @package Bkwld\Croppa\Filters
+ */
 class OrangeWarhol implements FilterInterface
 {
     /**
@@ -11,7 +17,7 @@ class OrangeWarhol implements FilterInterface
      *
      * @param \GdThumb $thumb
      *
-     * @return \Intervention\Image\Image
+     * @return GdThumb|Image
      */
     public function applyFilter(GdThumb $thumb)
     {
@@ -21,6 +27,4 @@ class OrangeWarhol implements FilterInterface
 
         return $thumb;
     }
-
-
 }

@@ -3,7 +3,13 @@
 namespace Bkwld\Croppa\Filters;
 
 use GdThumb;
+use Intervention\Image\Image;
 
+/**
+ * Class Negative
+ *
+ * @package Bkwld\Croppa\Filters
+ */
 class Negative implements FilterInterface
 {
     /**
@@ -11,7 +17,7 @@ class Negative implements FilterInterface
      *
      * @param \GdThumb $thumb
      *
-     * @return \Intervention\Image\Image
+     * @return GdThumb|Image
      */
     public function applyFilter(GdThumb $thumb)
     {
@@ -20,5 +26,4 @@ class Negative implements FilterInterface
 
         return $thumb;
     }
-
 }

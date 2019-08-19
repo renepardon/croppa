@@ -3,15 +3,21 @@
 namespace Bkwld\Croppa\Filters;
 
 use GdThumb;
+use Intervention\Image\Image;
 
+/**
+ * Class TurquoiseWarhol
+ *
+ * @package Bkwld\Croppa\Filters
+ */
 class TurquoiseWarhol implements FilterInterface
 {
     /**
      * Applies filter to given thumbnail object.
      *
-     * @param \GdThumb $thumb
+     * @param GdThumb $thumb
      *
-     * @return \Intervention\Image\Image
+     * @return GdThumb|Image
      */
     public function applyFilter(GdThumb $thumb)
     {
@@ -21,5 +27,4 @@ class TurquoiseWarhol implements FilterInterface
 
         return $thumb;
     }
-
 }

@@ -1,6 +1,6 @@
 # Croppa
 
-[![Packagist](https://img.shields.io/packagist/v/bkwld/croppa.svg)](https://packagist.org/packages/bkwld/croppa) [![Build Status](https://img.shields.io/travis/BKWLD/croppa.svg)](https://travis-ci.org/BKWLD/croppa)
+[![Packagist](https://img.shields.io/packagist/v/renepardon/croppa.svg)](https://packagist.org/packages/renepardon/croppa) [![Build Status](https://img.shields.io/travis/renepardon/croppa.svg)](https://travis-ci.org/renepardon/croppa)
 
 Croppa is an thumbnail generator bundle for Laravel 4.x, 5.x and Lumen (local storage only). It follows a different approach from libraries that store your thumbnail dimensions in the model, like [Paperclip](https://github.com/thoughtbot/paperclip). Instead, the resizing and cropping instructions come from specially formatted urls.  For instance, say you have an image with this path:
 
@@ -28,14 +28,14 @@ Since 4.0, Croppa lets images be stored on remote disks like S3, Dropbox, FTP an
 
 #### Laravel:
 
-1. Add Croppa to your project: `composer require bkwld/croppa`
+1. Add Croppa to your project: `composer require renepardon/croppa`
 2. If using Laravel < 5.5:
 	- Add Croppa as a provider in your `app` config's provider list: `'Bkwld\Croppa\ServiceProvider'`
 	- Add the facade to your `app` config's aliases: `'Croppa' => 'Bkwld\Croppa\Facade'`
 
 #### Lumen:
 
-1. Add Croppa to your project: `composer require bkwld/croppa`
+1. Add Croppa to your project: `composer require renepardon/croppa`
 2. Enable facades and add the facade in bootstrap/app.php: `class_alias('Bkwld\Croppa\Facade', 'Croppa');`.
 3. Add the provider in bootstrap/app.php: `$app->register('Bkwld\Croppa\ServiceProvider');`.
 4. Create a directory on the project root called 'config' and copy the config file there then rename it to croppa.php.
@@ -57,7 +57,7 @@ location ~* \.(?:jpg|jpeg|gif|png|ico|cur|gz|svg|svgz|mp4|ogg|ogv|webm|htc)$ {
 
 ## Configuration
 
-Read the [source of the config file](https://github.com/BKWLD/croppa/blob/master/src/config/config.php) for documentation of the config options.  Here are some examples of common setups (additional [examples can be found here](https://github.com/BKWLD/croppa/wiki/Examples)):
+Read the [source of the config file](https://github.com/renepardon/croppa/blob/master/src/config/config.php) for documentation of the config options.  Here are some examples of common setups (additional [examples can be found here](https://github.com/renepardon/croppa/wiki/Examples)):
 
 You can publish the config file into your app's config directory, by running the following command:
 ```php
@@ -225,12 +225,12 @@ croppa.url('/path/to/img.jpg', 300, 200, ['resize', {quadrant: 'T'}]);
 croppa.url('/path/to/img.jpg', 300, 200, ['resize', {quadrant: ['T']}]);
 ```
 
-Run `php artisan asset:publish bkwld/croppa` to have Laravel copy the JS to your public directory.  It will go to /public/packages/bkwld/croppa/js by default.
+Run `php artisan asset:publish renepardon/croppa` to have Laravel copy the JS to your public directory.  It will go to /public/packages/renepardon/croppa/js by default.
 
 
 
 ## History
 
-Read the Github [project releases](https://github.com/BKWLD/croppa/releases) for release notes.
+Read the Github [project releases](https://github.com/renepardon/croppa/releases) for release notes.
 
 This bundle uses [PHPThumb](https://github.com/masterexploder/PHPThumb) to do all the [image resizing](https://github.com/masterexploder/PHPThumb/wiki/Basic-Usage).  "Crop" is equivalent to it's adaptiveResize() and "resize" is … resize().  Support for interacting with non-local disks provided by [Flysystem](http://flysystem.thephpleague.com/).

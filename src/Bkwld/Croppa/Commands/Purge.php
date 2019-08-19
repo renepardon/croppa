@@ -1,6 +1,7 @@
-<?php namespace Bkwld\Croppa\Commands;
+<?php
 
-// Deps
+namespace Bkwld\Croppa\Commands;
+
 use Bkwld\Croppa\Storage;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
@@ -8,8 +9,8 @@ use Symfony\Component\Console\Input\InputOption;
 /**
  * Delete ALL crops from the crops_dir
  */
-class Purge extends Command {
-
+class Purge extends Command
+{
     /**
      * The console command name.
      *
@@ -25,30 +26,18 @@ class Purge extends Command {
     protected $description = 'Delete ALL crops';
 
     /**
-     * @var Bkwld\Croppa\Storage
+     * @var Storage
      */
     protected $storage;
 
     /**
-     * Dependency inject
-     *
      * @param Storage $storage
      */
-    public function __construct(Storage $storage) {
+    public function __construct(Storage $storage)
+    {
         parent::__construct();
-        $this->storage = $storage;
-    }
 
-    /**
-     * Execute the console command
-     *
-     * @return void
-     */
-    public function handle() {
-        $dry = $this->input->getOption('dry-run');
-        foreach($this->storage->deleteAllCrops($this->input->getOption('filter'), $dry) as $path) {
-            $this->info(sprintf('%s %s', $path, $dry ? 'not deleted' : 'deleted' ));
-        }
+        $this->storage = $storage;
     }
 
     /**
@@ -56,8 +45,25 @@ class Purge extends Command {
      *
      * @return void
      */
-    public function fire() {
+    public function fire()
+    {
         $this->handle();
+    }
+
+    /**
+     * Execute the console command
+     *
+     * @return void
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     * @throws \League\Flysystem\FileNotFoundException
+     */
+    public function handle()
+    {
+        $dry = $this->input->getOption('dry-run');
+
+        foreach ($this->storage->deleteAllCrops($this->input->getOption('filter'), $dry) as $path) {
+            $this->info(sprintf('%s %s', $path, $dry ? 'not deleted' : 'deleted'));
+        }
     }
 
     /**
@@ -65,11 +71,11 @@ class Purge extends Command {
      *
      * @return array;
      */
-    protected function getOptions() {
+    protected function getOptions()
+    {
         return [
             ['filter', null, InputOption::VALUE_REQUIRED, 'A regex pattern that whitelists matching crop paths', null],
             ['dry-run', null, InputOption::VALUE_NONE, 'Only return the crops that would be deleted'],
         ];
     }
-
 }
